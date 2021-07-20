@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\Frontend\HomePageController;
+use App\Http\Controllers\Admin\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,8 @@ Route::get('/about', [HomePageController::class, 'about']);
 Route::get('/gallery', [HomePageController::class, 'gallery']);
 Route::get('/event', [HomePageController::class, 'event']);
 Route::get('/faq', [HomePageController::class, 'faq']);
+
+
+Route::prefix('admin')->group(function () {
+    Route::get('transactions', [TransactionController::class, 'index']);
+});
