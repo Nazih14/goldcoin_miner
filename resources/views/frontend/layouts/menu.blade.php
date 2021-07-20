@@ -10,19 +10,19 @@
                     <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php/page/about">About</a>
+                    <a class="nav-link" href="about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="page/gallery">Gallery</a>
+                    <a class="nav-link" href="gallery">Gallery</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="page/event">Event</a>
+                    <a class="nav-link" href="event">Event</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="page/faq">FAQ</a>
+                    <a class="nav-link" href="faq">FAQ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="page/login"><i class="fas fa-lock"></i> Login</a>
+                    <a class="nav-link" href="login"><i class="fas fa-lock"></i> Login</a>
                 </li>
             </ul>
         </div>
