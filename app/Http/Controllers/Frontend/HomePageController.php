@@ -22,4 +22,8 @@ class HomePageController extends Controller
     public function event(){
         return view('frontend.page.event');
     }
+
+    public function faq(){
+        return view('frontend.page.faq');
+    }
 }

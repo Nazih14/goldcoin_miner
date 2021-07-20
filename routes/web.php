@@ -13,12 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// HOMEPAGe
+// HOMEPAGE
 Route::get('/', [HomePageController::class, 'index']);
 Route::get('/about', [HomePageController::class, 'about']);
 Route::get('/gallery', [HomePageController::class, 'gallery']);
 Route::get('/event', [HomePageController::class, 'event']);
-
-// Route::get('/', function () {
-//     return view('frontend.layouts.base');
-// });
+Route::get('/faq', [HomePageController::class, 'faq']);
