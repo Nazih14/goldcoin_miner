@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 // HOMEPAGe
 Route::get('/', [HomePageController::class, 'index']);
 Route::get('/about', [HomePageController::class, 'about']);
+Route::get('/gallery', [HomePageController::class, 'gallery']);
 
 // Route::get('/', function () {
 //     return view('frontend.layouts.base');

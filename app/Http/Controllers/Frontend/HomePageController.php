@@ -15,4 +15,9 @@ class HomePageController extends Controller
         return view('frontend.page.about');
     }
 
+    public function gallery(){
+        return view('frontend.page.gallery');
+    }
+
+
 }
