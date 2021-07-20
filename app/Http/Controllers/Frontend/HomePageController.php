@@ -19,5 +19,7 @@ class HomePageController extends Controller
         return view('frontend.page.gallery');
     }
 
-
+    public function event(){
+        return view('frontend.page.event');
+    }
 }
