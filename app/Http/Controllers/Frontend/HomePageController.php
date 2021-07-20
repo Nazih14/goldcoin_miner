@@ -7,8 +7,12 @@ use Illuminate\Http\Request;
 
 class HomePageController extends Controller
 {
-    public function index()
-    {
+    public function index(){
         return view('frontend.page.index');
     }
+    
+    public function about(){
+        return view('frontend.page.about');
+    }
+
 }
