@@ -40,6 +40,9 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
+                                    {{-- <small>
+                                        <a href="pages-reset-password.html">Forgot password?</a>
+                                    </small> --}}
                                 </div>
                                 <div>
                                     <div class="custom-control custom-checkbox align-items-center">
