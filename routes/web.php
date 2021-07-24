@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 // HOMEPAGE
 Route::get('/', [HomePageController::class, 'index']);
@@ -22,10 +23,12 @@ Route::get('/event', [HomePageController::class, 'event']);
 Route::get('/faq', [HomePageController::class, 'faq']);
 
 
-Route::prefix('admin')->group(function () {
-    Route::get('transactions', [TransactionController::class, 'index']);
+// admin area
+Route::middleware(['admin', 'auth'])->group(function(){
+    Route::prefix('admin')->group(function () {
+        Route::get('transactions', [TransactionController::class, 'index']);
+    });
 });
 
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
