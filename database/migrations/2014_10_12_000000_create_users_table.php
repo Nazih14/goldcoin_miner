@@ -22,10 +22,10 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable();
             $table->enum('gender', ['L','P'])->nullable();
             $table->text('address')->nullable();
-            $table->enum('role', ['admin','member'])->nullable();;
-            $table->enum('status', ['aktif','nonaktif'])->nullable();;
-            $table->string('foto')->nullable();;
-            $table->date('date_member')->nullable();;
+            $table->enum('role', ['admin','member'])->default('member');
+            $table->enum('status', ['aktif','nonaktif'])->nullable();
+            $table->string('foto')->nullable();
+            $table->date('date_member')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
