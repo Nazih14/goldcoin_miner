@@ -7,7 +7,10 @@
     
     @yield('content')
 
-    @include('frontend.layouts.footer')
+    {{-- {{ (request()->is('admin/cities')) ? 'active' : '' }} --}}
+    @if (!request()->is('login') && !request()->is('register'))
+        @include('frontend.layouts.footer')
+    @endif
     
     
 </body>
