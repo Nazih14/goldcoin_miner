@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -75,15 +76,47 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource user.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'gender' => 'required',
+            'birthday' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'email' => 'required',
+            'id' => 'required',
+        ]);
+        $remove = ['_method', '_token'];
+        
+        $user = $request->input();
+
+        $user['birthday'] = date("Y-m-d", strtotime($request->birthday));
+        
+        if ($request->input('password')!=null) {
+            $request->validate([
+                'password' => 'required|confirmed|min:8',
+            ]);
+            $user['password'] =  Hash::make($request->input('password'));
+        }else{
+            array_merge($remove, ['password']);    
+        }
+
+        array_push($remove, 'password_confirmation');
+
+        foreach($remove as $key) {
+            unset($user[$key]);
+        }
+
+        User::where("id", $user['id'])->update($user);
+        
+        return redirect()->back();
     }
 
     /**

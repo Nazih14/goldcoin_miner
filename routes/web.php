@@ -26,9 +26,13 @@ Route::get('/faq', [HomePageController::class, 'faq']);
 Route::middleware(['admin', 'auth'])->prefix('admin')->group(function(){
     Route::get('transactions', [App\Http\Controllers\Admin\TransactionController::class, 'index'])->name('admin.transactions');;
     Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
-    Route::get('profile', [App\Http\Controllers\Admin\UserController::class, 'profile'])->name('admin.profile');
 });
 
+// mix
+Route::middleware(['auth'])->prefix('admin')->group(function(){
+    Route::get('profile', [App\Http\Controllers\Admin\UserController::class, 'profile'])->name('admin.profile');
+    Route::put('user', [App\Http\Controllers\Admin\UserController::class, 'update'])->name('user.update');
+});
 
 // member area
 Route::middleware(['auth'])->prefix('member')->group(function(){
