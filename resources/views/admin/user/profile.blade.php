@@ -97,13 +97,13 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label for="filePhoto" class="form-label">Default file input example</label>
+                            <label for="filePhoto" class="form-label">Photo Profile</label>
                             <input class="form-control" type="file" name="photo" id="filePhoto">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label for="fileCover" class="form-label">Default file input example</label>
+                            <label for="fileCover" class="form-label">Cover Photo</label>
                         </div>
                         <input class="form-control" type="file" name="cover" id="fileCover">
                     </div>
