@@ -25,13 +25,10 @@
     <div class="col-12 col-xl-8">
         <div class="card card-body border-0 shadow mb-4">
             <h2 class="h5 mb-4">General information</h2>
-            <form action="{{ route('user.update') }}" method="post">
+            <form action="{{ route('user.update') }}" method="post" enctype="multipart/form-data">
             {{ method_field('PUT') }}
             @csrf
                 @include('errors.validation_error')
-                
-                
-             
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <div>
@@ -96,6 +93,21 @@
                         </div>
                     </div>
                 </div>
+                <h2 class="h5 my-4">Image</h2>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="filePhoto" class="form-label">Default file input example</label>
+                            <input class="form-control" type="file" name="photo" id="filePhoto">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="fileCover" class="form-label">Default file input example</label>
+                        </div>
+                        <input class="form-control" type="file" name="cover" id="fileCover">
+                    </div>
+                </div>
                 <div class="mt-3">
                     <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">Save all</button>
                 </div>
@@ -106,9 +118,9 @@
         <div class="row">
             <div class="col-12 mb-4">
                 <div class="card shadow border-0 text-center p-0">
-                    <div class="profile-cover rounded-top" data-background="{{ url('adminvolt/assets/img/profile-cover.jpg')}}"></div>
+                    <div class="profile-cover rounded-top" data-background="{{  $user->cover_photo==null ? url('adminvolt/assets/img/profile-cover.jpg')  : url($user->cover_photo)}}"></div>
                     <div class="card-body pb-5">
-                        <img src="{{ url('adminvolt/assets/img/team/profile-picture-1.jpg')}}" class="avatar-xl rounded-circle mx-auto mt-n7 mb-4" alt="Neil Portrait">
+                        <img src="{{  $user->photo==null ? url('adminvolt/assets/img/team/profile-picture-1.jpg') : url($user->photo)}}" class="avatar-xl rounded-circle mx-auto mt-n7 mb-4" alt="Neil Portrait">
                         <h4 class="h3">{{$user->name}}</h4>
                         {{-- <h5 class="fw-normal">Senior Software Engineer</h5> --}}
                         <p class="text-gray mb-4">{{$user->address}}</p>
@@ -116,52 +128,6 @@
                     </div>
                  </div>
             </div>
-            {{-- <div class="col-12">
-                <div class="card card-body border-0 shadow mb-4">
-                    <h2 class="h5 mb-4">Select profile photo</h2>
-                    <div class="d-flex align-items-center">
-                        <div class="me-3">
-                            <!-- Avatar -->
-                            <img class="rounded avatar-xl" src="{{ url('adminvolt/assets/img/team/profile-picture-3.jpg')}}" alt="change avatar">
-                        </div>
-                        <div class="file-field">
-                            <div class="d-flex justify-content-xl-center ms-xl-3">
-                                <div class="d-flex">
-                                    <svg class="icon text-gray-500 me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z" clip-rule="evenodd"></path></svg>
-                                    <input type="file">
-                                    <div class="d-md-block text-left">
-                                        <div class="fw-normal text-dark mb-1">Choose Image</div>
-                                        <div class="text-gray small">JPG, GIF or PNG. Max size of 800K</div>
-                                    </div>
-                                </div>
-                            </div>
-                         </div>                                        
-                    </div>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="card card-body border-0 shadow">
-                    <h2 class="h5 mb-4">Select cover photo</h2>
-                    <div class="d-flex align-items-center">
-                        <div class="me-3">
-                            <!-- Avatar -->
-                            <img class="rounded avatar-xl" src="{{ url('adminvolt/assets/img/profile-cover.jpg')}}" alt="change cover">
-                        </div>
-                        <div class="file-field">
-                            <div class="d-flex justify-content-xl-center ms-xl-3">
-                                <div class="d-flex">
-                                    <svg class="icon text-gray-500 me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z" clip-rule="evenodd"></path></svg>
-                                    <input type="file">
-                                    <div class="d-md-block text-left">
-                                        <div class="fw-normal text-dark mb-1">Choose Image</div>
-                                        <div class="text-gray small">JPG, GIF or PNG. Max size of 800K</div>
-                                    </div>
-                                </div>
-                            </div>
-                         </div>                                        
-                    </div>
-                </div>
-            </div> --}}
         </div>
     </div>
 </div>
