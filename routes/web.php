@@ -24,7 +24,16 @@ Route::get('/faq', [HomePageController::class, 'faq']);
 
 // admin area
 Route::middleware(['admin', 'auth'])->prefix('admin')->group(function(){
-    Route::get('transactions', [App\Http\Controllers\Admin\TransactionController::class, 'index'])->name('admin.transactions');;
+    
+    Route::prefix('transactions')->group(function (){
+        Route::get('/', [App\Http\Controllers\Admin\TransactionController::class, 'index'])->name('admin.transactions');        
+        Route::get('/create', [App\Http\Controllers\Admin\TransactionController::class, 'create'])->name('transactions.create');        
+        Route::post('/create', [App\Http\Controllers\Admin\TransactionController::class, 'store'])->name('transactions.store');        
+        Route::post('/edit/{id}', [App\Http\Controllers\Admin\TransactionController::class, 'edit'])->name('transactions.edit');        
+        Route::put('/update', [App\Http\Controllers\Admin\TransactionController::class, 'update'])->name('transactions.update');        
+    });
+
+
     Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
 });
 

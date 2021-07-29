@@ -129,7 +129,7 @@ class UserController extends Controller
         
         User::where("id", $user['id'])->update($user);
         
-        return redirect()->back()->with('success', 'Success save data profile');;
+        return redirect()->back()->with('success', 'Success save data profile');
     }
     
     /**

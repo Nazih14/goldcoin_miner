@@ -88,7 +88,7 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label for="password_confirmation">password_confirmation</label>
+                            <label for="password_confirmation">Password Confirmation</label>
                             <input class="form-control" id="password_confirmation" name="password_confirmation" type="password">
                         </div>
                     </div>
