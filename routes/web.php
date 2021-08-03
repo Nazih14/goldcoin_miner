@@ -28,8 +28,8 @@ Route::middleware(['admin', 'auth'])->prefix('admin')->group(function(){
     Route::prefix('transactions')->group(function (){
         Route::get('/', [App\Http\Controllers\Admin\TransactionController::class, 'index'])->name('admin.transactions');        
         Route::get('/create', [App\Http\Controllers\Admin\TransactionController::class, 'create'])->name('transactions.create');        
-        Route::post('/create', [App\Http\Controllers\Admin\TransactionController::class, 'store'])->name('transactions.store');        
-        Route::post('/edit/{id}', [App\Http\Controllers\Admin\TransactionController::class, 'edit'])->name('transactions.edit');        
+        Route::post('/save', [App\Http\Controllers\Admin\TransactionController::class, 'store'])->name('transactions.store');        
+        Route::get('/edit/{id}', [App\Http\Controllers\Admin\TransactionController::class, 'edit'])->name('transactions.edit');        
         Route::put('/update', [App\Http\Controllers\Admin\TransactionController::class, 'update'])->name('transactions.update');        
     });
 

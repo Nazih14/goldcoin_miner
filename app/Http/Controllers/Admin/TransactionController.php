@@ -69,14 +69,17 @@ class TransactionController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified transaction.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        $type = 'edit';
+        $users= User::select('id', 'name', 'email')->where('role','member')->get();
+        $data = Transaction::findOrFail($id);
+        return view('admin.transactions.form', compact('type', 'users', 'data'));      
     }
 
     /**
@@ -86,9 +89,19 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $request->validate([
+            'subject' => 'required',
+            'user_id' => 'required',
+            'price' => 'required',
+            'time' => 'required',
+            'status' => 'required',
+        ]);
+
+        $this->save('edit', $request);
+
+        return redirect()->back()->with('success', 'Success update data transactions');
     }
 
     /**
@@ -108,7 +121,7 @@ class TransactionController extends Controller
         $remove = ['_method', '_token'];
         $dataInput = $request->input();
         
-        $dataInput['birthday'] = date("Y-m-d H:i:s", strtotime($request->time));
+        $dataInput['time'] = date("Y-m-d H:i:s", strtotime($request->time));
    
         foreach($remove as $key) {
             unset($dataInput[$key]);
