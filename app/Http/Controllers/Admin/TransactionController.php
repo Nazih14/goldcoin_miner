@@ -19,7 +19,8 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        return view('admin.transactions.index');
+        $data = Transaction::paginate(2);
+        return view('admin.transactions.index', compact('data'));
     }
 
     /**

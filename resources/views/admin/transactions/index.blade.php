@@ -14,8 +14,8 @@
                 <li class="breadcrumb-item active" aria-current="page">Transactions</li>
             </ol>
         </nav>
-        <h2 class="h4">All Orders</h2>
-        <p class="mb-0">Your web analytics dashboard template.</p>
+        <h2 class="h4">All Transactions</h2>
+        {{-- <p class="mb-0">Your web analytics dashboard template.</p> --}}
     </div>
     <div class="btn-toolbar mb-2 mb-md-0">
         <a href="/admin/transactions/create" class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
@@ -63,30 +63,30 @@
         <thead>
             <tr>
                 <th class="border-gray-200">#</th>
-                <th class="border-gray-200">Bill For</th>						
-                <th class="border-gray-200">Issue Date</th>
-                <th class="border-gray-200">Due Date</th>
-                <th class="border-gray-200">Total</th>
+                <th class="border-gray-200">Subject</th>						
+                <th class="border-gray-200">Price</th>
+                <th class="border-gray-200">Time</th>
                 <th class="border-gray-200">Status</th>
+                <th class="border-gray-200">Member</th>
+                <th class="border-gray-200">Image</th>
                 <th class="border-gray-200">Action</th>
             </tr>
         </thead>
         <tbody>
-            <!-- Item -->
-            @for ($i = 1; $i < 5; $i++)
+            @foreach ($data as $item)
             <tr>
+                <td><a href="#" class="fw-bold">{{$item->id}}</a></td>
                 <td>
-                    <a href="#" class="fw-bold">
-                        456478
-                    </a>
+                    <span class="fw-normal">{{$item->subject}}</span>
                 </td>
+                <td><span class="fw-bold">{{ $item->price }}</span></td>                        
+                <td><span class="fw-normal">{{ $item->time }}</span></td>
+                <td><span class="fw-bold text-warning">{{ $item->status }}</span></td>
+                <td><span class="fw-bold">{{ $item->user_id }}</span></td>
                 <td>
-                    <span class="fw-normal">Platinum Subscription Plan</span>
-                </td>
-                <td><span class="fw-normal">1 May 2020</span></td>                        
-                <td><span class="fw-normal">1 Jun 2020</span></td>
-                <td><span class="fw-bold">$799,00</span></td>
-                <td><span class="fw-bold text-warning">Due</span></td>
+                    @if (!empty($item->image))
+                        <a target="_blank" href="/{{$item->image}}"><img src="/{{$item->image}}" alt="{{$item->subject}}" style="width:100px"></a></td>
+                    @endif
                 <td>
                     <div class="btn-group">
                         <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -103,39 +103,11 @@
                     </div>
                 </td>
             </tr>
-            @endfor
+            @endforeach
             <!-- Item -->                         
         </tbody>
     </table>
-
-    <div class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
-        <nav aria-label="Page navigation example">
-            <ul class="pagination mb-0">
-                <li class="page-item">
-                    <a class="page-link" href="#">Previous</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">1</a>
-                </li>
-                <li class="page-item active">
-                    <a class="page-link" href="#">2</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">3</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">4</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">5</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
-                </li>
-            </ul>
-        </nav>
-        <div class="fw-normal small mt-4 mt-lg-0">Showing <b>5</b> out of <b>25</b> entries</div>
-    </div>
+    @include('admin.layouts.pagination', ['paginator'=> $data])
 </div>
 
 @endsection
