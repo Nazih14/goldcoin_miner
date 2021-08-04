@@ -152,7 +152,7 @@ class UserController extends Controller
     public function uploadImage($requestImage, $folder, $slugName)
     {
         // dd($requestImage);
-        $fileName   =  $folder.'-'.$slugName.'.'.$requestImage->getClientOriginalExtension();
+        $fileName   =  $folder.'-'.rand(0, 10000).'.'.$requestImage->getClientOriginalExtension();
         
         $image    = Image::make($requestImage);
 
