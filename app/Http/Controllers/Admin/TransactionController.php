@@ -19,7 +19,7 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $data = Transaction::paginate(2);
+        $data = Transaction::paginate(10);
         return view('admin.transactions.index', compact('data'));
     }
 
@@ -113,7 +113,8 @@ class TransactionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Transaction::destroy($id);
+        return redirect()->back()->with('success', 'Success delete data transactions');
     }
 
     private function save($type, $request)
