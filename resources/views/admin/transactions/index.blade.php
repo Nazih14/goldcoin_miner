@@ -22,10 +22,6 @@
             <svg class="icon icon-xs me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
             Add Transactions
         </a>
-        <div class="btn-group ms-2 ms-lg-3">
-            <button type="button" class="btn btn-sm btn-outline-gray-600">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-gray-600">Export</button>
-        </div>
     </div>
 </div>
 
@@ -41,7 +37,7 @@
                 <input type="text" class="form-control" placeholder="Search orders">
             </div>
         </div>
-        <div class="col-4 col-md-2 col-xl-1 ps-md-0 text-end">
+        {{-- <div class="col-4 col-md-2 col-xl-1 ps-md-0 text-end">
             <div class="dropdown">
                 <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path></svg>
@@ -54,9 +50,11 @@
                     <a class="dropdown-item fw-bold rounded-bottom" href="#">30</a>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>
+
+@include('errors.alert')
 
 <div class="card card-body border-0 shadow table-wrapper table-responsive">
     <table class="table table-hover">
@@ -88,17 +86,15 @@
                         <a target="_blank" href="/{{$item->image}}"><img src="/{{$item->image}}" alt="{{$item->subject}}" style="width:100px"></a></td>
                     @endif
                 <td>
-                    <div class="btn-group">
-                        <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="icon icon-sm">
-                                <span class="fas fa-ellipsis-h icon-dark"></span>
-                            </span>
+                    <div class="dropdown">
+                        <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path></svg>
                             <span class="visually-hidden">Toggle Dropdown</span>
                         </button>
-                        <div class="dropdown-menu py-0">
-                            <a class="dropdown-item rounded-top" href="#"><span class="fas fa-eye me-2"></span>View Details</a>
-                            <a class="dropdown-item" href="#"><span class="fas fa-edit me-2"></span>Edit</a>
-                            <a class="dropdown-item text-danger rounded-bottom" href="#"><span class="fas fa-trash-alt me-2"></span>Remove</a>
+                        <div class="dropdown-menu dropdown-menu-xs dropdown-menu-end pb-0">
+                            <span class="small ps-3 fw-bold text-dark">action</span>
+                            <a class="dropdown-item fw-bold" href="{{route('transactions.edit', ['id'=>$item->id])}}">edit</a>
+                            <a class="dropdown-item fw-bold" href="{{route('transactions.destroy', ['id'=>$item->id])}}">delete</a>
                         </div>
                     </div>
                 </td>

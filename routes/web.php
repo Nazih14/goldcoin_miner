@@ -31,6 +31,7 @@ Route::middleware(['admin', 'auth'])->prefix('admin')->group(function(){
         Route::post('/save', [App\Http\Controllers\Admin\TransactionController::class, 'store'])->name('transactions.store');        
         Route::get('/edit/{id}', [App\Http\Controllers\Admin\TransactionController::class, 'edit'])->name('transactions.edit');        
         Route::put('/update', [App\Http\Controllers\Admin\TransactionController::class, 'update'])->name('transactions.update');        
+        Route::get('/delete/{id}', [App\Http\Controllers\Admin\TransactionController::class, 'destroy'])->name('transactions.destroy');        
     });
 
 
