@@ -17,14 +17,30 @@ class TransactionController extends Controller
      * @member
      * @admin
      * @return \Illuminate\Http\Response
+     * @request search
      */
-    public function index()
+    public function index(Request $request)
     {
+        $search = $request->get('search');
         $user = request()->user();
+
+        // dd($search);
         $data = Transaction::select('transactions.*')->where('user_id', $user->id)->paginate(10); 
-        
-        if ($user->role=='admin') 
-            $data = Transaction::select('transactions.*', 'users.name', 'users.id as user_id', 'users.role')->leftJoin('users', 'users.id', '=', 'transactions.user_id')->paginate(10);
+        if (is_null($search)) {
+    
+            if ($user->role=='admin') 
+                $data = Transaction::select('transactions.*', 'users.name', 'users.id as user_id', 'users.role')->leftJoin('users', 'users.id', '=', 'transactions.user_id')->paginate(10);        
+    
+        }else {
+            $data =  Transaction::select('transactions.*', 'users.name', 'users.id as user_id', 'users.role')
+            ->leftJoin('users', 'users.id', '=', 'transactions.user_id')
+            ->where(function ($query) use ($search){
+                $query->orWhere('subject','like', '%'.$search.'%');
+                $query->orWhere('name','like', '%'.$search.'%');
+                $query->orWhere('time','like', '%'.$search.'%');
+                $query->orWhere('transactions.status',$search);
+            })->paginate(10);
+        }
         
         return view('admin.transactions.index', compact('data'));
     }
