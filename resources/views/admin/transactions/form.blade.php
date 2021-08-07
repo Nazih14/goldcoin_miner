@@ -104,7 +104,8 @@
 
                 </div>
                 <div class="mt-3">
-                    <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">Save all</button>
+                    <button class="btn btn-primary mt-2 animate-up-2" type="submit">Save all</button>
+                    <a class="btn btn-warning mt-2 animate-up-2" href="/admin/transactions">Back</a>
                 </div>
             </form>
         </div>

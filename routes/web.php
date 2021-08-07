@@ -48,6 +48,9 @@ Route::middleware(['auth'])->prefix('admin')->group(function(){
 Route::middleware(['auth'])->prefix('member')->group(function(){
     Route::get('dashboard', [App\Http\Controllers\Member\DashboardController::class, 'index'])->name('member.dashboard');
     Route::get('profile', [App\Http\Controllers\Admin\UserController::class, 'profile'])->name('member.profile');
+    Route::prefix('transactions')->group(function (){
+        Route::get('/', [App\Http\Controllers\Admin\TransactionController::class, 'index'])->name('admin.transactions');        
+    });
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

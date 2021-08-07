@@ -65,9 +65,18 @@
                 <th class="border-gray-200">Price</th>
                 <th class="border-gray-200">Time</th>
                 <th class="border-gray-200">Status</th>
-                <th class="border-gray-200">Member</th>
+
+                @if (request()->user()->role=='admin')
+                <th class="border-gray-200">Member</th>                
+                @endif
+
                 <th class="border-gray-200">Image</th>
-                <th class="border-gray-200">Action</th>
+                
+                @if (request()->user()->role=='admin')
+                <th class="border-gray-200">Member</th>                
+                @else
+                <th class="border-gray-200">Description</th>
+                @endif
             </tr>
         </thead>
         <tbody>
@@ -80,11 +89,16 @@
                 <td><span class="fw-bold">{{ $item->price }}</span></td>                        
                 <td><span class="fw-normal">{{ $item->time }}</span></td>
                 <td><span class="fw-bold text-warning">{{ $item->status }}</span></td>
-                <td><span class="fw-bold">{{ $item->user_id }}</span></td>
+                @if (request()->user()->role=='admin')
+                <td><span class="fw-bold">{{ $item->name }}</span></td>
+                @endif
+                
                 <td>
                     @if (!empty($item->image))
-                        <a target="_blank" href="/{{$item->image}}"><img src="/{{$item->image}}" alt="{{$item->subject}}" style="width:100px"></a></td>
+                    <a target="_blank" href="/{{$item->image}}"><img src="/{{$item->image}}" alt="{{$item->subject}}" style="width:100px"></a>
                     @endif
+                </td>
+                @if (request()->user()->role=='admin')
                 <td>
                     <div class="dropdown">
                         <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -98,6 +112,10 @@
                         </div>
                     </div>
                 </td>
+                @else
+                <td><span class="fw-normal">{{ $item->description }}</span></td>
+                @endif
+                
             </tr>
             @endforeach
             <!-- Item -->                         
@@ -105,5 +123,5 @@
     </table>
     @include('admin.layouts.pagination', ['paginator'=> $data])
 </div>
-
-@endsection
+    
+    @endsection

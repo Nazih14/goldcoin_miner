@@ -13,13 +13,19 @@ use Image;
 class TransactionController extends Controller
 {
     /**
-     * List transaction members
-     *
+     * List transaction
+     * @member
+     * @admin
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $data = Transaction::paginate(10);
+        $user = request()->user();
+        $data = Transaction::select('transactions.*')->where('user_id', $user->id)->paginate(10); 
+        
+        if ($user->role=='admin') 
+            $data = Transaction::select('transactions.*', 'users.name', 'users.id as user_id', 'users.role')->leftJoin('users', 'users.id', '=', 'transactions.user_id')->paginate(10);
+        
         return view('admin.transactions.index', compact('data'));
     }
 
@@ -32,7 +38,7 @@ class TransactionController extends Controller
     {
         $type='create';
         $users= User::select('id', 'name', 'email')->where('role','member')->get();
-        return view('admin.transactions.form', compact('type', 'users'));        
+        return view('admin.transactions.form', compact('type', 'users'));
     }
 
     /**
