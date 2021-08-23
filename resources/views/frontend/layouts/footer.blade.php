@@ -8,11 +8,11 @@
                             <!-- <img src="assets/images/logo_1.png" class="img-fluid" alt=""> -->
                         </div>
                         <div class="mb-3">
-                            <div class="btn btn-primary">SIgn Up</div>
-                            <div class="btn btn-warning">Sign In</div>
+                            <a href="/register"class="btn btn-primary">SIgn Up</a>
+                            <a href="/login"class="btn btn-warning">Sign In</a>
                         </div>
                         
-                        <p>Kami sangat terbuka untuk kemitraan untuk semua perusahaan tambang yang memenuhi persyaratan kami. Jika anda tertarik untuk menjual kapasitas hosting untuk pertambangan melalui platform Goldgainer.com, <br/><a href="">silahkan hubungi kami.</a></p>
+                        <p>We are open to lessees/renters and to partnerships. Our Offical Agent program is scheduled for release in the coming months, <br/><a href="">please contact us.</a></p>
                         
                         <ul class="social mt-3">
                             <li><a href="#"><i class="fab fa-facebook-f" style="margin-top: 7px;"></i></a></li>
@@ -27,7 +27,7 @@
                             <h4>Links</h4>
                         </div>
                         <ul>
-                            <li><a href="#">About Us</a></li>
+                            <li><a href="/about">About Us</a></li>
                             <li><a href="#">Services</a></li>
                             <li><a href="#">Portfolio</a></li>
                             <li><a href="#">Blog</a></li>
@@ -45,8 +45,7 @@
                                     <i class="fas fa-phone" style="margin-top: 8px;"></i>
                                 </div>
                                 <div class="info">
-                                    <p><a href="tel:+919246147999">1800-121-3637</a></p>
-                                    <p><a href="tel:+919246147999">+91 924-614-7999</a></p>
+                                    <p><a href="tel:+6281280023699">+62 812 800 23699</a></p>
                                 </div>
                             </div>
                             <div class="single_info">
@@ -54,8 +53,7 @@
                                     <i class="fas fa-envelope" style="margin-top: 8px;"></i>
                                 </div>
                                 <div class="info">
-                                    <p><a href="mailto:info@deneb.com">info@deneb.com</a></p>
-                                    <p><a href="mailto:services@deneb.com">services@deneb.com</a></p>
+                                    <p><a href="mailto:admin@goldcoinminer.com">admin@goldcoinminer.com</a></p>
                                 </div>
                             </div>
                             <div class="single_info">
@@ -63,7 +61,7 @@
                                     <i class="fas fa-map-marker-alt" style="margin-top: 8px;"></i>
                                 </div>
                                 <div class="info">
-                                    <p>125, Park street aven, Brocklyn,<span>Newyork.</span></p>
+                                    <p>Jl. Prof. Dr Ida Bagus Mantra No 99X, Saba, Gianyar,<span>Bali.</span></p>
                                 </div>
                             </div>
                         </div>

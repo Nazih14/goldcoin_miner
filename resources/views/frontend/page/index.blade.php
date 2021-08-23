@@ -45,13 +45,13 @@
                 <div class="col-lg-12 col-sm-12 caption-two-panel mb-5">
                     <div class="intro-caption mt-5">
                         <center>
-                            <h1 class="text-white mb-2">MULAI MENAMBANG BITCOIN SEKARANG JUGA!</h1>
+                            <h1 class="text-white mb-2">Goldcoinminer is here!</h1>
                             <p class="text-white mb-4">
-                                Caranya sangat mudah - mesin penambangan Anda telah selesai dan siap bekerja.
-                                Segera setelah Anda membuat akun, Anda bisa mulai menambang koin pertama Anda menggunakan layanan penambangan Bitcoin kami yang berbasis cloud!
+                                Our Vision is to build the largest crypto mining operation in Indonesia<br>
+               Our Mission is to make mining accessible globally through competitve pricing models providing lessees with an additional income stream
                             </p>
-                            <a href="signup.html" class="btn btn-warning text-white">Info Goldgainer <span class="fas fa-chevron-circle-right"></span></a>
-                            <a href="register.html" class="btn btn-outline-warning text-white">COBA SEKARANG <span class="fas fa-chevron-circle-right"></span></a>
+                            <a href="/register" class="btn btn-warning text-white">Info Goldgainer <span class="fas fa-chevron-circle-right"></span></a>
+                            <a href="/register" class="btn btn-outline-warning text-white">COBA SEKARANG <span class="fas fa-chevron-circle-right"></span></a>
                         </center>
                     </div>
                 </div>
@@ -65,10 +65,8 @@
             <div class="row align-items-center mt-5">
                 <div class="col-lg-12">
                     <center>
-                        <h2 class="title">What <span>Service</span> We
-                            Offer
-                        </h2>
-                        <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>
+                        <h2 class="title">Mining <span>Leasing</span> Solutions</h2>
+                        <p class="">Currently we offer the lease of full mining rigs. To keep things simple, rather than leasing you hash power, we are giving you a fixed return on your lease and pay you on a monthly basis.</p>
                         <a class="btn btn-primary mb-5" href="#">More Info </a>
                     </center>
                 </div>
@@ -80,8 +78,8 @@
                                     <center>
                                         <img src="https://img.icons8.com/bubbles/100/000000/cash-register.png"/>
                                     </center>
-                                    <h5 class="card-title text-center"><b>Perangkat keras Andasudah berjalan</b></h5>
-                                    <p class="card-text text-center">Tidak perlu repot lagi merakit perangkat mining yang panas serta berisik di rumah Anda. Kami memiliki perangkat mining bitcoin tercepat yang siap bekerja untuk Anda sepenuhnya.</p>
+                                    <h5 class="card-title text-center"><b>Full Mining Machine</b></h5>
+                                    <p class="card-text text-center">A 36 month lease at approx. $4,000 USD* pays you a monthly fee of $333. This is a 200% payback on your initial lease fee. Note: * Lease fee may vary due to market conditions.</p>
                                 </div>
                             </div>
                         </div>
@@ -91,8 +89,8 @@
                                     <center>
                                         <img class="img-fluid" src="https://img.icons8.com/bubbles/100/000000/design.png"/>
                                     </center>
-                                    <h5 class="card-title text-center"><b>Tambang mata uang virtual alternatif</b></h5>
-                                    <p class="card-text text-center">Anda dapat menambang mata uang virtual yang tersedia di katalog kami. Alihkan kekuatan mining Anda dengan cepat untuk semua koin menggunakan situs web mining bitcoin kami.</p>
+                                    <h5 class="card-title text-center"><b>Smaller Lots</b></h5>
+                                    <p class="card-text text-center">Not everyone has a spare $4,000 USD or they prefer to start small and watch how it all works. It is possible to start with as little as $200 USD and still get the same type of percentage returns as the bigger players. How could we be fairer than that?</p>
                                 </div>
                             </div>
                         </div>
@@ -102,8 +100,8 @@
                                     <center>
                                         <img class="img-fluid" src="https://img.icons8.com/bubbles/100/000000/rescan-document.png"/>
                                     </center>
-                                    <h5 class="card-title text-center"><b>Dapatkan hasil penambanganpertama Anda hari ini</b></h5>
-                                    <p class="card-text text-center">Anda akan mendapatkan hasil penambangan secara berkala ke dompet yang Anda pilih. Coba platform penambangan Bitcoin kami sekarang juga!</p>
+                                    <h5 class="card-title text-center"><b>Regular Campaigns</b></h5>
+                                    <p class="card-text text-center">We regularly run promotions to make leasing even more lucrative. Ask us now for our latest promotion to see if it is available in your region.</p>
                                 </div>
                             </div>
                         </div>
@@ -123,13 +121,13 @@
                 <div class="row align-items-center">
                     <div class="col-lg-7">
                         <div class="cta_content">
-                            <h3>Goldgainer dibentuk oleh para profesional bagi para individu yang ingin terlibat dalam penambangan uang kripto</h3>
-                            <p>Kami percaya bahwa setiap orang harus mendapatkan keuntungan dari pertambangan dan dapat memiliki akses teknologi terbaru dan pusat data industri skala besar dari laptop atau ponsel.</p>
+                            <h3>Our Operations | Why would you want to put money into Crypto Mining with us?</h3>
+                            <p>We keep our mining rigs under lock and key. We closely monitor temperatures and mining efficiency. We have just upgraded the electricity capacity to our first mining centre in Bali as demand for the rigs has increased.<br>Profits: Mining done the right way can be very profitable. Of course it takes knowledge and experience in cryptocurrency and blockchain. Our team has combined 18 years experience in this field. We have customised our mining rigs to be able to mine over 50 different coins depending on the market.<br>Global Reach: Cryptocurrency is decentralised and our mining takes full advantage of that. When it is time to pay your monthly fee, we like to pay you in USDT stable coin. Quicker transactions and lower fees.<br>Fixed Returns: Whilst this will not always be the case, we are currently offering monthly fixed payments rather than coins. This means you can plan on a stable cash flow.</p>
                         </div>
                     </div>
                     <div class="col-lg-5">
                         <div class="button_box">
-                            <a href="#" class="btn btn-warning">Bergabunglah Bersama kami <span class="fas fa-arrow-right"></span></a>
+                            <a href="/register" class="btn btn-warning">Sign up <span class="fas fa-arrow-right"></span></a>
                         </div>
                     </div>
                 </div>
