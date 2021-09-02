@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
+Auth::routes(['verify'=>true]);
 
 // HOMEPAGE
 Route::get('/', [HomePageController::class, 'index']);
@@ -23,7 +23,7 @@ Route::get('/faq', [HomePageController::class, 'faq']);
 
 
 // admin area
-Route::middleware(['admin', 'auth'])->prefix('admin')->group(function(){
+Route::middleware(['admin', 'auth', 'verified'])->prefix('admin')->group(function(){
     
     Route::prefix('transactions')->group(function (){
         Route::get('/', [App\Http\Controllers\Admin\TransactionController::class, 'index'])->name('admin.transactions');        
@@ -42,10 +42,10 @@ Route::middleware(['admin', 'auth'])->prefix('admin')->group(function(){
 Route::middleware(['auth'])->prefix('admin')->group(function(){
     Route::get('profile', [App\Http\Controllers\Admin\UserController::class, 'profile'])->name('admin.profile');
     Route::put('user', [App\Http\Controllers\Admin\UserController::class, 'update'])->name('user.update');
-});
+}); 
 
 // member area
-Route::middleware(['auth'])->prefix('member')->group(function(){
+Route::middleware(['auth', 'verified'])->prefix('member')->group(function(){
     Route::get('dashboard', [App\Http\Controllers\Member\DashboardController::class, 'index'])->name('member.dashboard');
     Route::get('profile', [App\Http\Controllers\Admin\UserController::class, 'profile'])->name('member.profile');
     Route::prefix('transactions')->group(function (){
@@ -53,5 +53,5 @@ Route::middleware(['auth'])->prefix('member')->group(function(){
     });
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 
